@@ -12,7 +12,7 @@ class _CardDeckWidgetState extends State<CardDeckWidget>
     with SingleTickerProviderStateMixin {
   double _posIncr = 0.0;
   double _growSize = 1.0;
-  double _elevation;
+  double _elevation = 10.0;
 
   CardDeck deck;
 
@@ -35,7 +35,7 @@ class _CardDeckWidgetState extends State<CardDeckWidget>
     Future.delayed(Duration(milliseconds: 100), () {
       setState(() {
         _growSize = 1.15;
-        _elevation = 50.0;
+        _elevation = 20.0;
       });
     });
   }
@@ -78,7 +78,7 @@ class _CardDeckWidgetState extends State<CardDeckWidget>
             child: SwipeableFlashCard(
               onSwiped: _onSwiped,
               child: FlashCard(
-                elevation: _elevation,
+                elevation: onDisplayCard ? _elevation : 10.0,
                 width: 250.0 * scale,
                 height: 350.0 * scale,
                 flipOnTap: onDisplayCard,
@@ -117,7 +117,7 @@ class _SwipeableFlashCardState extends State<SwipeableFlashCard>
     with SingleTickerProviderStateMixin {
   Offset _childOffset;
   AnimationController _controller;
-  AnimationStatus _status = AnimationStatus.dismissed;
+  // AnimationStatus _status = AnimationStatus.dismissed;
   // Animation<double> _leftSwipe;
   // Animation<double> _rightSwipe;
   // Animation<double> _calcledSwipe;

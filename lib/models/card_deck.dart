@@ -4,7 +4,7 @@ class CardDeck {
   final String name;
   final List<FlashCard> cards;
 
-  CardDeck({this.name, this.cards});
+  CardDeck({this.name, this.cards = const <FlashCard>[]});
 
   FlashCard addCard(FlashCard card) {
     this.cards.add(card);
